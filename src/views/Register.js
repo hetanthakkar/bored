@@ -5,7 +5,7 @@ import {
   ImageBackground,
   Platform,
   Animated,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import Input from "../components/Input";
@@ -47,7 +47,7 @@ class Register extends Component {
     this.keyboardDidHideSub.remove();
   }
 
-  keyboardWillShow = event => {
+  keyboardWillShow = (event) => {
     if (Platform.OS == "android") {
       duration = 100;
     } else {
@@ -56,20 +56,20 @@ class Register extends Component {
     Animated.parallel([
       Animated.timing(this.formPosition, {
         duration: duration,
-        toValue: -hp("5.25%")
+        toValue: -hp("5.25%"),
       }),
       Animated.timing(this.animatedTitleTopMargin, {
         duration: duration,
-        toValue: 0
+        toValue: 0,
       }),
       Animated.timing(this.animatedTitleSize, {
         duration: duration,
-        toValue: 50
-      })
+        toValue: 50,
+      }),
     ]).start();
   };
 
-  keyboardWillHide = event => {
+  keyboardWillHide = (event) => {
     if (Platform.OS == "android") {
       duration = 100;
     } else {
@@ -78,16 +78,16 @@ class Register extends Component {
     Animated.parallel([
       Animated.timing(this.formPosition, {
         duration: duration,
-        toValue: 0
+        toValue: 0,
       }),
       Animated.timing(this.animatedTitleTopMargin, {
         duration: duration,
-        toValue: 20
+        toValue: 20,
       }),
       Animated.timing(this.animatedTitleSize, {
         duration: duration,
-        toValue: 70
-      })
+        toValue: 70,
+      }),
     ]).start();
   };
 
@@ -96,7 +96,7 @@ class Register extends Component {
       <View
         style={{
           flex: 1,
-          backgroundColor: "#F6F6F6"
+          backgroundColor: "#F6F6F6",
         }}
       >
         <Animated.View
@@ -104,7 +104,7 @@ class Register extends Component {
             height: hp("18%"),
             justifyContent: "center",
             paddingHorizontal: hp("2.5%"),
-            marginTop: this.animatedTitleTopMargin
+            marginTop: this.animatedTitleTopMargin,
             // marginTop: Platform.OS == "android" ? hp("3.75%") : null
           }}
         >
@@ -113,7 +113,7 @@ class Register extends Component {
               fontSize: this.animatedTitleSize,
               fontWeight: "400",
               // opacity: this.animatedTitleOpacity
-              opacity: 1
+              opacity: 1,
             }}
           >
             Signup.
@@ -124,7 +124,7 @@ class Register extends Component {
             flex: 1,
             paddingHorizontal: hp("2.5%"),
             marginBottom: Platform.OS == "android" ? hp("10%") : null,
-            marginTop: this.formPosition
+            marginTop: this.formPosition,
           }}
         >
           {/* form */}
@@ -134,13 +134,13 @@ class Register extends Component {
           <Text
             style={{
               fontWeight: "500",
-              color: "gray"
+              color: "gray",
             }}
           >
             Or easily{" "}
             <Text
               style={{
-                color: "#F08C4F"
+                color: "#F08C4F",
               }}
             >
               connect with facebook
@@ -150,7 +150,7 @@ class Register extends Component {
         <View
           style={{
             flex: 1,
-            paddingHorizontal: hp("2.5%")
+            paddingHorizontal: hp("2.5%"),
           }}
         >
           <ImageBackground
@@ -158,7 +158,7 @@ class Register extends Component {
             style={{
               flex: 1,
               width: null,
-              height: hp("72%")
+              height: hp("72%"),
               // height: Platform.OS == "android" ? 470 : 440
             }}
           >
@@ -166,7 +166,7 @@ class Register extends Component {
               style={{
                 flex: 1,
                 justifyContent: "flex-end",
-                paddingBottom: hp("5%")
+                paddingBottom: hp("5%"),
               }}
             >
               <Button

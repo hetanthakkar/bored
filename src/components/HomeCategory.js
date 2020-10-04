@@ -5,11 +5,11 @@ import {
   ImageBackground,
   Image,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
-  heightPercentageToDP as hp
+  heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
 const { width } = Dimensions.get("window");
@@ -17,14 +17,14 @@ const { width } = Dimensions.get("window");
 class HomeCategory extends Component {
   state = {
     width: null,
-    height: null
+    height: null,
   };
 
   componentWillMount() {
     const { imageUri } = this.props;
     this.setState({
       width: Image.resolveAssetSource(imageUri).width,
-      height: Image.resolveAssetSource(imageUri).height
+      height: Image.resolveAssetSource(imageUri).height,
     });
   }
 
@@ -35,11 +35,11 @@ class HomeCategory extends Component {
         activeOpacity={0.8}
         onPress={() =>
           this.props.navigation.navigate("Category", {
-            name: titleFirst
+            name: titleFirst,
           })
         }
         style={{
-          height: this.state.height
+          height: this.state.height,
         }}
       >
         <ImageBackground
@@ -50,20 +50,20 @@ class HomeCategory extends Component {
             height: this.state.height,
             alignSelf: "stretch",
             resizeMode: "contain",
-            paddingLeft: wp("10%")
+            paddingLeft: wp("10%"),
           }}
         >
           <View
             style={{
               flex: 2,
               justifyContent: "flex-end",
-              paddingBottom: hp("5%")
+              paddingBottom: hp("5%"),
             }}
           >
             <Text
               style={{
                 fontSize: 30,
-                fontWeight: "500"
+                fontWeight: "500",
               }}
             >
               {titleFirst}
@@ -71,7 +71,7 @@ class HomeCategory extends Component {
             <Text
               style={{
                 fontSize: 30,
-                fontWeight: "500"
+                fontWeight: "500",
               }}
             >
               {titleSecond}
@@ -79,14 +79,14 @@ class HomeCategory extends Component {
           </View>
           <View
             style={{
-              flex: 1
+              flex: 1,
             }}
           >
             <Text
               style={{
                 fontSize: 18,
                 color: "gray",
-                fontWeight: "500"
+                fontWeight: "500",
               }}
             >
               {subTitle}
